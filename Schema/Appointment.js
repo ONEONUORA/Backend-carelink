@@ -1,27 +1,69 @@
-import mongoose from "mongoose";
+
+
+// import mongoose from 'mongoose';
+
+// const appointmentSchema = new mongoose.Schema({
+//     user: {
+//       type: String,
+//       required: true,
+//     },
+//     date: {
+//       type: String,
+//       required: true,
+//     },
+//     time: {
+//       type: String,
+//       required: true,
+//     },
+//     details: {
+//       type: String,
+//       required: true,
+//     },
+//   },
+//   {
+//     timestamps: true
+// });
+
+//  export default  mongoose.model('Appointment', appointmentSchema);
+
+
+import mongoose from 'mongoose';
 
 const appointmentSchema = new mongoose.Schema({
-    patient: {
-        type: mongoose.Schema.Types.ObjectId,
-        ref: 'User',
+    user: {
+      fullname: {
+        type: String,
         required: true,
+      },
+      email: {
+        type: String,
+        required: true,
+      },
     },
-    doctor: {
-        type: mongoose.Schema.Types.ObjectId,
-        ref: 'User',
-        required: true,
+    date: {
+      type: String,
+      required: true,
     },
-    appointmentDate: {
-        type: Date,
-        required: true,
+    time: {
+      type: String,
+      required: true,
+    },
+    details: {
+      type: String,
+      required: true,
     },
     status: {
-        type: String,
-        enum: ['pending', 'confirmed', 'cancelled', 'completed'],
-        default: 'pending',
+      type: String,
+      enum: ['pending', 'approved'],
+      default: 'pending',
     },
-}, {
+  },
+  {
     timestamps: true
 });
 
 export default mongoose.model('Appointment', appointmentSchema);
+
+
+
+
