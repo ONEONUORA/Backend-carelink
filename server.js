@@ -394,7 +394,7 @@ server.patch('/api/appointments/:id/status',verifyToken, async (req, res) => {
                 const patientEmail = appointment.user.email;
                 const mailSubject = 'PATIENT APPOINTMENT CONFIRMATION';
                 const mailText = `Dear ${appointment.user.fullname},\n\nYour appointment with a Care-Link doctor has been confirmed.\n\n A Zoom meeting link will be sent to you via email within the next 5 minutes.
-                   \n\nAppointment Details:\nDate: ${appointment.date}\nTime: ${appointment.time}\nConsultation Details: ${appointment.details}\n\nThank you for choosing us,\n\n care-link Team`;
+                   \n\nAppointment Details:\nDate: ${appointment.date}\nTime: ${appointment.time}\nConsultation Details: ${appointment.details}\n\nThank you for trusting us,\n\n care-link Team`;
                 sendMail(patientEmail, mailSubject, mailText);
               }
         
